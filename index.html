@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>명언 제조기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">DAILY QUOTE STUDIO</p>
+      <h1>명언 제조기</h1>
+      <p class="lead">
+        오늘의 기분에 맞는 문장을 골라보고, 버튼 한 번으로 새로운 한 줄을 만나보세요.
+      </p>
+    </section>
+
+    <section class="quote-card" aria-live="polite">
+      <div class="quote-meta">
+        <span id="quoteCategory" class="pill">#도전</span>
+        <span id="quoteIndex" class="index">01 / 24</span>
+      </div>
+
+      <blockquote id="quoteText" class="quote-text">
+        작은 시작이 큰 변화를 만든다.
+      </blockquote>
+      <p id="quoteAuthor" class="quote-author">- 익명</p>
+
+      <div class="actions">
+        <button id="generateBtn" class="primary-btn" type="button">새 명언 만들기</button>
+        <button id="copyBtn" class="secondary-btn" type="button">복사하기</button>
+      </div>
+    </section>
+
+    <section class="filters" aria-label="명언 카테고리">
+      <button class="filter-btn active" data-category="all" type="button">전체</button>
+      <button class="filter-btn" data-category="도전" type="button">도전</button>
+      <button class="filter-btn" data-category="위로" type="button">위로</button>
+      <button class="filter-btn" data-category="성장" type="button">성장</button>
+      <button class="filter-btn" data-category="습관" type="button">습관</button>
+    </section>
+
+    <section class="footer-panel">
+      <p id="toast" class="toast" role="status" aria-live="polite"></p>
+      <p class="hint">원하는 분위기를 골라서 명언을 바꿔보세요.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

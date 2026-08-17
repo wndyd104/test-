@@ -1,0 +1,279 @@
+:root {
+  --bg-1: #0b1020;
+  --bg-2: #121c3b;
+  --card: rgba(13, 20, 40, 0.72);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --text: #f5f7ff;
+  --muted: rgba(245, 247, 255, 0.72);
+  --accent: #7cf7d4;
+  --accent-2: #8aa8ff;
+  --accent-3: #ffcb6b;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(124, 247, 212, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(138, 168, 255, 0.18), transparent 24%),
+    radial-gradient(circle at bottom, rgba(255, 203, 107, 0.12), transparent 28%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black, transparent 82%);
+  pointer-events: none;
+}
+
+.app-shell {
+  width: min(920px, 100%);
+  display: grid;
+  gap: 22px;
+}
+
+.hero,
+.quote-card,
+.filters,
+.footer-panel {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 28px 28px 8px;
+  border-radius: 28px 28px 18px 18px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.lead {
+  margin: 16px 0 20px;
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.quote-card {
+  padding: 28px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -35% auto;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(124, 247, 212, 0.22), transparent 65%);
+  pointer-events: none;
+}
+
+.quote-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.pill,
+.index {
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pill {
+  background: rgba(124, 247, 212, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(124, 247, 212, 0.24);
+}
+
+.index {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.quote-text {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.primary-btn,
+.secondary-btn,
+.filter-btn {
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), #a7ffe8);
+  color: #06231d;
+  box-shadow: 0 14px 28px rgba(124, 247, 212, 0.18);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.filters {
+  padding: 16px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+
+.filter-btn.active {
+  color: var(--text);
+  border-color: rgba(138, 168, 255, 0.35);
+  background: rgba(138, 168, 255, 0.16);
+}
+
+.footer-panel {
+  padding: 16px 18px;
+  border-radius: 18px 18px 28px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast,
+.hint {
+  margin: 0;
+}
+
+.toast {
+  min-height: 1.5em;
+  color: var(--accent-3);
+  font-weight: 700;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+.fade {
+  animation: fadeUp 380ms ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+
+  .hero,
+  .quote-card,
+  .filters,
+  .footer-panel {
+    border-radius: 20px;
+  }
+
+  .quote-meta,
+  .footer-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .filter-btn {
+    width: 100%;
+  }
+}
